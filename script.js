@@ -22,3 +22,26 @@ function updateQRCode(text) {
 
 let inputElement = document.getElementById('text-input');
 inputElement.addEventListener('input', () => updateQRCode(inputElement.value));
+
+function downloadQRCode() {
+  const canvas = qrcodeElement.querySelector('canvas');
+  const padding = 16;
+  const context = canvas.getContext('2d');
+  const width = canvas.width + padding * 2;
+  const height = canvas.height + padding * 2;
+  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+  const tempCanvas = document.createElement('canvas');
+  tempCanvas.width = width;
+  tempCanvas.height = height;
+  const tempContext = tempCanvas.getContext('2d');
+  tempContext.fillStyle = 'white';
+  tempContext.fillRect(0, 0, width, height);
+  tempContext.putImageData(imageData, padding, padding);
+
+  const url = tempCanvas.toDataURL('image/png');
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'qrcode.png';
+  a.click();
+}
