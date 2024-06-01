@@ -49,3 +49,16 @@ function downloadQRCode() {
 function copyQRCode() {
   navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
 }
+
+document.getElementById('text-input').addEventListener('paste', async function(event) {
+  const items = (event.clipboardData || event.originalEvent.clipboardData).items;
+  for (let item of items) {
+    if (item.type.indexOf('image') === 0) {
+      const blob = item.getAsFile();
+      const html5QrCode = new Html5Qrcode('qr-reader');
+      const result = await html5QrCode.scanFile(blob, false)
+      inputElement.value = result
+      updateQRCode(result)
+    }
+  }
+});
