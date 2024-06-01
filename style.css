@@ -1,0 +1,27 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+  width: 320px;
+}
+
+#text-input {
+  margin-bottom: 20px;
+  width: calc(100% - 20px);
+  padding: 10px;
+  font-size: 16px;
+}
+
+#qrcode img {
+  margin-top: 15px;
+  max-width: 100%;
+  height: auto;
+}
