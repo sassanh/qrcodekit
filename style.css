@@ -26,14 +26,30 @@ html {
   height: auto;
 }
 
-#download {
-  margin-top: 10px;
+#buttons {
+  margin-top: 15px;
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+#download,
+#copy {
   padding: 10px;
   color: white;
   border: none;
   cursor: pointer;
   font-size: 32px;
-  width: 100%;
+  min-width: 0;
   font-family: 'Material Symbols Outlined';
+}
+
+#download {
   background-color: #4caf50;
+}
+
+#copy {
+  background-color: #2196f3;
 }

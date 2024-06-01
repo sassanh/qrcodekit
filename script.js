@@ -45,3 +45,7 @@ function downloadQRCode() {
   a.download = 'qrcode.png';
   a.click();
 }
+
+function copyQRCode() {
+  navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
+}
