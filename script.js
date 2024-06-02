@@ -65,4 +65,5 @@ document
         updateQRCode(result);
       }
     }
+    autosize.update(inputElement);
   });
